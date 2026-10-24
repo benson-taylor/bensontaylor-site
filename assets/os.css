@@ -544,9 +544,10 @@ a.collab:hover img { filter: brightness(0); }
 
   /* Windows: full-height sheets under the header. */
   .js .win {
-    inset: calc(var(--bar) + 4px) 6px 6px 6px !important;
+    inset: calc(var(--bar) + 4px) 6px auto 6px !important;
     width: auto !important;
-    max-height: none;
+    max-height: calc(100vh - var(--bar) - 10px);
+    max-height: calc(100svh - var(--bar) - 10px);
     z-index: 900;
     box-shadow: 3px 3px 0 rgba(0,0,0,.85);
   }
