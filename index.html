@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BENSON TAYLOR</title>
+<meta name="description" content="Benson Taylor — British composer, record producer, technologist and businessman, working between his studios in Tuscany and Los Angeles.">
+<meta name="theme-color" content="#ff56cc">
+<link rel="canonical" href="https://bensontaylor.com/">
+<link rel="icon" href="assets/img/icon-32.png" sizes="32x32">
+<link rel="icon" href="assets/img/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="assets/img/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=VT323&display=swap">
+<link rel="stylesheet" href="assets/os.css?v=20261024205733">
+<script>
+  // Set before the first paint so the boot screen covers the site from the start (no flash on reload).
+  document.documentElement.classList.add('js');
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches && !/[?&]skipboot/.test(location.search)) document.documentElement.classList.add('booting');
+</script>
+</head>
+<body>
+
+<!-- Boot screen: shown once per visit, any key or click skips it. -->
+<div class="boot" id="boot" aria-hidden="true">
+  <pre class="boot-log" id="boot-log"></pre>
+</div>
+
+<!-- The pixelated portrait behind everything. -->
+<canvas class="bg" id="bg" aria-hidden="true"></canvas>
+
+<!-- Menu bar -->
+<header class="menubar">
+  <a class="mb-name" href="./" data-home>BENSON TAYLOR</a>
+  <nav class="mb-menu" aria-label="Primary">
+    <a href="#about" data-open="about">ABOUT</a>
+    <a href="#music" data-open="music">MUSIC</a>
+    <a href="#work" data-open="work">WORK</a>
+    <a href="#contact" data-open="contact">CONTACT</a>
+    <a href="#radio" data-open="radio">RADIO</a>
+  </nav>
+  <div class="mb-social">
+    <a href="https://www.instagram.com/_bensontaylor/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="12" r="4.4" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="17.6" cy="6.4" r="1.4" fill="currentColor"/></svg>
+    </a>
+    <a class="imdb" href="https://www.imdb.com/name/nm3892603/" target="_blank" rel="noopener" aria-label="IMDb" title="IMDb">
+      <svg viewBox="0 0 48 24" aria-hidden="true"><text x="24" y="18" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="16" letter-spacing="-0.5" fill="currentColor">IMDb</text></svg>
+    </a>
+    <a href="https://twitter.com/_bensontaylor" target="_blank" rel="noopener" aria-label="X" title="X">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+  </div>
+</header>
+
+<main class="desktop" id="content">
+
+  <h1 class="sr">Benson Taylor</h1>
+
+  <section class="np" aria-label="Now playing">
+    <header class="np-bar">
+      <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+      <span class="np-label">NOW PLAYING</span>
+      <span class="np-title">FOURTH THIRD TWENTY THREE — TUSCAN JUNK FOOD &amp; DAEDELUS</span>
+    </header>
+    <div class="np-video"><div id="np-player"></div></div>
+    <div class="np-controls">
+      <button class="np-sound" id="np-sound" aria-pressed="false"><span class="on">■ SOUND ON</span><span class="off">▶ CLICK FOR SOUND</span></button>
+      <a href="http://musics.to/50905KqULk" target="_blank" rel="noopener">LISTEN EVERYWHERE ↗</a>
+    </div>
+  </section>
+
+  <ul class="icons" aria-label="Desktop">
+    <li><button class="icon" data-open="new-music"><img src="assets/img/mac-tv.png" data-sel="assets/img/mac-tv-sel.png" alt="" width="48" height="48" draggable="false"><span>New Music</span></button></li>
+    <li><button class="icon" data-open="about"><img src="assets/img/mac-doc.png" data-sel="assets/img/mac-doc-sel.png" alt="" width="48" height="48" draggable="false"><span>About Benson</span></button></li>
+    <li><button class="icon" data-open="music"><img src="assets/img/mac-note.png" data-sel="assets/img/mac-note-sel.png" alt="" width="48" height="48" draggable="false"><span>Music</span></button></li>
+    <li><button class="icon" data-open="work"><img src="assets/img/mac-star.png" data-sel="assets/img/mac-star-sel.png" alt="" width="48" height="48" draggable="false"><span>Work</span></button></li>
+    <li><button class="icon" data-open="contact"><img src="assets/img/mac-mail.png" data-sel="assets/img/mac-mail-sel.png" alt="" width="48" height="48" draggable="false"><span>Contacts</span></button></li>
+    <li><button class="icon" data-open="radio"><img src="assets/img/mac-radio.png" data-sel="assets/img/mac-radio-sel.png" alt="" width="48" height="48" draggable="false"><span>Radio</span></button></li>
+  </ul>
+
+  <!-- ===================== WINDOWS ===================== -->
+
+  <section class="win" id="new-music" aria-labelledby="t-new-music" data-pos="47,4" data-w="780">
+    <header class="win-bar"><button class="win-close" aria-label="Close">✕</button><h2 id="t-new-music">NEW_MUSIC.MOV</h2></header>
+    <div class="win-body">
+      <div class="video"><iframe title="Fourth Third Twenty Three - Tuscan Junk Food &amp; Daedelus" src="https://www.youtube.com/embed/rpQ9LRvMG9g" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <p class="lede">Benson Taylor’s under his new moniker, <mark>TUSCAN JUNK FOOD</mark>, collaborates with Los Angeles electronic titan <mark>DAEDELUS</mark>.</p>
+      <p class="lede"><b>FOURTH THIRD TWENTY THREE</b> is out now on all streaming platforms.</p>
+      <a class="btn" href="http://musics.to/50905KqULk" target="_blank" rel="noopener">▶ LISTEN EVERYWHERE</a>
+    </div>
+  </section>
+
+  <section class="win" id="about" aria-labelledby="t-about" data-pos="30,10" data-w="860">
+    <header class="win-bar"><button class="win-close" aria-label="Close">✕</button><h2 id="t-about">ABOUT.TXT</h2></header>
+    <div class="win-body">
+      <figure class="portrait">
+        <img src="assets/img/benson-taylor-1024.jpeg" srcset="assets/img/benson-taylor-768.jpeg 768w, assets/img/benson-taylor-1024.jpeg 1024w, assets/img/benson-taylor-1536.jpeg 1536w" sizes="(max-width: 700px) 100vw, 600px" width="1024" height="692" alt="Benson Taylor, black and white portrait among ivy leaves">
+        <canvas aria-hidden="true"></canvas>
+      </figure>
+      <div class="bio">
+        <p class="bio-lead">Benson Taylor is a British composer, record producer, technologist and businessman, working between his studios in Tuscany and Los Angeles, where his orchestral and experimental synthesis backgrounds unite.</p>
+        <p>David Bowie’s publishing company signed Benson in his early twenties and he has since carved out an incredible career writing and producing music. He is an alumnus of the University of California, Los Angeles.</p>
+        <p>Benson’s music is heard in Netflix’s <i>Orange Is the New Black</i>, <i>Suits</i>, <i>Grey’s Anatomy</i>, <i>Ray Donovan</i>, <i>The Big Bang Theory</i> and <i>13 Reasons Why</i>. He recently scored Paul Leyden’s <i>Chick Fight</i>, an Amazon Original starring Malin Akerman, Bella Thorne and Alec Baldwin. In addition to the score, he also co-wrote and produced original songs for the film with Grammy-nominated Bones UK.</p>
+        <p>In 2018 he wrote the soundtrack for the film adaptation of the notable Martin Amis thriller <i>London Fields</i>, directed by Mathew Cullen and starring Billy Bob Thornton, Amber Heard, Jason Isaacs, Jim Sturgess, Cara Delevingne and Johnny Depp.</p>
+        <p>Benson founded A Remarkable Idea, a sub-label with Universal Music Group, in 2017.</p>
+        <p>He has co-written with and produced artists including Bloc Party, Maxïmo Park, Bat For Lashes, the Hallé Orchestra, The New Mastersounds, Daedelus, Bo Ningen, Alex Maas (The Black Angels), Pulled Apart By Horses, the Los Angeles Philharmonic, Meshell Ndegeocello, Temples’ James Bagshaw, Lower Dens, MOBO-winning Kairos 4tet, Menace Beach, Robot Koch, The Kingdom Choir and Grammy Award-winning Good Charlotte.</p>
+        <hr>
+        <p>Benson was awarded an honorary doctorate for his services to music and humanitarian causes in 2016.</p>
+        <p>Benson won ‘Best Original Music’ for his first feature film score, <i>Fear of Water</i>, at the Monaco International Film Festival in 2014.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="win" id="music" aria-labelledby="t-music" data-pos="40,8" data-w="820">
+    <header class="win-bar"><button class="win-close" aria-label="Close">✕</button><h2 id="t-music">MUSIC.EXE</h2></header>
+    <div class="win-body">
+      <div class="player" id="player">
+        <div class="pl-art"><img id="pl-art" src="assets/work/poster-london-fields.png" alt="" width="500" height="500"></div>
+        <div class="pl-main">
+          <p class="pl-now"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span> TRACK <span id="pl-num">01</span> / 14</p>
+          <p class="pl-title" id="pl-title">LETTERS ON THE WALL</p>
+          <p class="pl-sub" id="pl-sub">LONDON FIELDS</p>
+          <div class="pl-wave" id="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><canvas id="pl-wave" aria-hidden="true"></canvas><div class="pl-fill" id="pl-fill" hidden></div></div>
+          <div class="pl-row">
+            <span class="pl-time" id="pl-time">0:00</span>
+            <div class="pl-btns">
+              <button id="pl-prev" aria-label="Previous track"><svg viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M1 1h1v6H1zM6 1h1v6H6zM5 2h1v4H5zM4 3h1v2H4zM3 3.5h1v1H3z" fill="currentColor"/></svg></button>
+              <button id="pl-play" class="pl-play" aria-label="Play"><svg class="i-play" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M2 1h1v6H2zM3 2h1v4H3zM4 3h1v2H4zM5 3.5h1v1H5z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M2 1h1.5v6H2zM4.5 1H6v6H4.5z" fill="currentColor"/></svg></button>
+              <button id="pl-next" aria-label="Next track"><svg viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M1 1h1v6H1zM2 2h1v4H2zM3 3h1v2H3zM4 3.5h1v1H4zM6 1h1v6H6z" fill="currentColor"/></svg></button>
+            </div>
+            <span class="pl-time" id="pl-dur">0:00</span>
+          </div>
+        </div>
+      </div>
+      <h3>London Fields <small>(film / orchestral / electronic)</small></h3>
+      <ol class="tracks">
+        <li><a class="track" href="https://soundcloud.com/benson-taylor/letters-on-the-wall" target="_blank" rel="noopener" data-id="651380435" data-art="assets/work/poster-london-fields.png" data-group="London Fields"><span class="num">01</span><span class="t">Letters On The Wall</span><span class="go" aria-hidden="true"><svg class="i-play" viewBox="0 0 8 8" shape-rendering="crispEdges"><path d="M2 1h1v6H2zM3 2h1v4H3zM4 3h1v2H4zM5 3.5h1v1H5z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 8 8" shape-rendering="crispEdges"><path d="M2 1h1.5v6H2zM4.5 1H6v6H4.5z" fill="currentColor"/></svg></span></a></li>
+        <li><a class="track" href="https://soundcloud.com/benson-taylor/consecutive-thoughts" target="_blank" rel="noopener" data-id="651380429" data-art="assets/work/poster-london-fields.png" data-group="London Fields"><span class="num">02</span><span class="t">Consecutive Thoughts</span><span class="go" aria-hidden="true"><svg class="i-play" viewBox="0 0 8 8" shape-rendering="crispEdges"><path d="M2 1h1v6H2zM3 2h1v4H3zM4 3h1v2H4zM5 3.5h1v1H5z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 8 8" shape-rendering="crispEdges"><path d="M2 1h1.5v6H2zM4.5 1H6v6H4.5z" fill="currentColor"/></svg></span></a></li>
+        <li><a class="track" href="https://soundcloud.com/benson-taylor/flat-scene" target="_blank" rel="noopener" data-id="651380423" data-art="assets/work/poster-london-fields.png" data-group="London Fields"><span class="num">03</span><span class="t">Flat Scene</span><span class="go" aria-hidden="true"><svg class="i-play" viewBox="0 0 8 8" shape-rendering="crispEdges"><path d="M2 1h1v6H2zM3 2h1v4H3zM4 3h1v2H4zM5 3.5h1v1H5z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 8 8" shape-rendering="crispEdges"><path d="M2 1h1.5v6H2zM4.5 1H6v6H4.5z" fill="currentColor"/></svg></span></a></li>
+        <li><a class="track" href="https://soundcloud.com/benson-taylor/wander-in-blues" target="_blank" rel="noopener" data-id="651380414" data-art="assets/work/poster-london-fields.png" data-group="London Fields"><span class="num">04</span><span class="t">Wander In Blues</span><span class="go" aria-hidden="true"><svg class="i-play" viewBox="0 0 8 8" shape-rendering="crispEdges"><path d="M2 1h1v6H2zM3 2h1v4H3zM4 3h1v2H4zM5 3.5h1v1H5z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 8 8" shape-rendering="crispEdges"><path d="M2 1h1.5v6H2zM4.5 1H6v6H4.5z" fill="currentColor"/></svg></span></a></li>
+        <li><a class="track" href="https://soundcloud.com/benson-taylor/handy-andy" target="_blank" rel="noopener" data-id="651380411" data-art="assets/work/poster-london-fields.png" data-group="London Fields"><span class="num">05</span><span class="t">Handy Andy</span><span class="go" aria-hidden="true"><svg class="i-play" viewBox="0 0 8 8" shape-rendering="crispEdges"><path d="M2 1h1v6H2zM3 2h1v4H3zM4 3h1v2H4zM5 3.5h1v1H5z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 8 8" shape-rendering="crispEdges"><path d="M2 1h1.5v6H2zM4.5 1H6v6H4.5z" fill="currentColor"/></svg></span></a></li>
+      </ol>
+      <h3>Orchestral Suite</h3>
+      <ol class="tracks">
+        <li><a class="track" href="https://soundcloud.com/benson-taylor/out-of-reach" target="_blank" rel="noopener" data-id="651380363" data-art="assets/work/logo-umg.svg" data-group="Orchestral Suite"><span class="num">06</span><span class="t">Out Of Reach</span><span class="go" aria-hidden="true"><svg class="i-play" viewBox="0 0 8 8" shape-rendering="crispEdges"><path d="M2 1h1v6H2zM3 2h1v4H3zM4 3h1v2H4zM5 3.5h1v1H5z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 8 8" shape-rendering="crispEdges"><path d="M2 1h1.5v6H2zM4.5 1H6v6H4.5z" fill="currentColor"/></svg></span></a></li>
+        <li><a class="track" href="https://soundcloud.com/benson-taylor/legacy" target="_blank" rel="noopener" data-id="651380375" data-art="assets/work/logo-umg.svg" data-group="Orchestral Suite"><span class="num">07</span><span class="t">Legacy</span><span class="go" aria-hidden="true"><svg class="i-play" viewBox="0 0 8 8" shape-rendering="crispEdges"><path d="M2 1h1v6H2zM3 2h1v4H3zM4 3h1v2H4zM5 3.5h1v1H5z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 8 8" shape-rendering="crispEdges"><path d="M2 1h1.5v6H2zM4.5 1H6v6H4.5z" fill="currentColor"/></svg></span></a></li>
+        <li><a class="track" href="https://soundcloud.com/benson-taylor/jeopardy" target="_blank" rel="noopener" data-id="651380384" data-art="assets/work/logo-umg.svg" data-group="Orchestral Suite"><span class="num">08</span><span class="t">Jeopardy</span><span class="go" aria-hidden="true"><svg class="i-play" viewBox="0 0 8 8" shape-rendering="crispEdges"><path d="M2 1h1v6H2zM3 2h1v4H3zM4 3h1v2H4zM5 3.5h1v1H5z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 8 8" shape-rendering="crispEdges"><path d="M2 1h1.5v6H2zM4.5 1H6v6H4.5z" fill="currentColor"/></svg></span></a></li>
+        <li><a class="track" href="https://soundcloud.com/benson-taylor/reaching" target="_blank" rel="noopener" data-id="651380381" data-art="assets/work/logo-umg.svg" data-group="Orchestral Suite"><span class="num">09</span><span class="t">Reaching</span><span class="go" aria-hidden="true"><svg class="i-play" viewBox="0 0 8 8" shape-rendering="crispEdges"><path d="M2 1h1v6H2zM3 2h1v4H3zM4 3h1v2H4zM5 3.5h1v1H5z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 8 8" shape-rendering="crispEdges"><path d="M2 1h1.5v6H2zM4.5 1H6v6H4.5z" fill="currentColor"/></svg></span></a></li>
+      </ol>
+      <h3>ARI × Universal × BT</h3>
+      <ol class="tracks">
+        <li><a class="track" href="https://soundcloud.com/benson-taylor/hero-in-disguise-1" target="_blank" rel="noopener" data-id="651380408" data-art="assets/work/logo-umg.svg" data-group="ARI × Universal × BT"><span class="num">10</span><span class="t">Hero In Disguise<small>Mercury shortlisted Bloc Party</small></span><span class="go" aria-hidden="true"><svg class="i-play" viewBox="0 0 8 8" shape-rendering="crispEdges"><path d="M2 1h1v6H2zM3 2h1v4H3zM4 3h1v2H4zM5 3.5h1v1H5z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 8 8" shape-rendering="crispEdges"><path d="M2 1h1.5v6H2zM4.5 1H6v6H4.5z" fill="currentColor"/></svg></span></a></li>
+        <li><a class="track" href="https://soundcloud.com/benson-taylor/too-serious" target="_blank" rel="noopener" data-id="651380402" data-art="assets/work/logo-umg.svg" data-group="ARI × Universal × BT"><span class="num">11</span><span class="t">Too Serious<small>Mercury shortlisted Maxïmo Park</small></span><span class="go" aria-hidden="true"><svg class="i-play" viewBox="0 0 8 8" shape-rendering="crispEdges"><path d="M2 1h1v6H2zM3 2h1v4H3zM4 3h1v2H4zM5 3.5h1v1H5z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 8 8" shape-rendering="crispEdges"><path d="M2 1h1.5v6H2zM4.5 1H6v6H4.5z" fill="currentColor"/></svg></span></a></li>
+        <li><a class="track" href="https://soundcloud.com/benson-taylor/is-this-thing-on" target="_blank" rel="noopener" data-id="651380399" data-art="assets/work/logo-umg.svg" data-group="ARI × Universal × BT"><span class="num">12</span><span class="t">Is This Thing On<small>Pulled Apart By Horses</small></span><span class="go" aria-hidden="true"><svg class="i-play" viewBox="0 0 8 8" shape-rendering="crispEdges"><path d="M2 1h1v6H2zM3 2h1v4H3zM4 3h1v2H4zM5 3.5h1v1H5z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 8 8" shape-rendering="crispEdges"><path d="M2 1h1.5v6H2zM4.5 1H6v6H4.5z" fill="currentColor"/></svg></span></a></li>
+        <li><a class="track" href="https://soundcloud.com/benson-taylor/hakoniwa" target="_blank" rel="noopener" data-id="651380390" data-art="assets/work/logo-umg.svg" data-group="ARI × Universal × BT"><span class="num">13</span><span class="t">Hakoniwa<small>Bo Ningen</small></span><span class="go" aria-hidden="true"><svg class="i-play" viewBox="0 0 8 8" shape-rendering="crispEdges"><path d="M2 1h1v6H2zM3 2h1v4H3zM4 3h1v2H4zM5 3.5h1v1H5z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 8 8" shape-rendering="crispEdges"><path d="M2 1h1.5v6H2zM4.5 1H6v6H4.5z" fill="currentColor"/></svg></span></a></li>
+        <li><a class="track" href="https://soundcloud.com/benson-taylor/escaping-jack" target="_blank" rel="noopener" data-id="651380387" data-art="assets/work/logo-umg.svg" data-group="ARI × Universal × BT"><span class="num">14</span><span class="t">Escaping Jack<small>MOBO Award winning Kairos 4tet</small></span><span class="go" aria-hidden="true"><svg class="i-play" viewBox="0 0 8 8" shape-rendering="crispEdges"><path d="M2 1h1v6H2zM3 2h1v4H3zM4 3h1v2H4zM5 3.5h1v1H5z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 8 8" shape-rendering="crispEdges"><path d="M2 1h1.5v6H2zM4.5 1H6v6H4.5z" fill="currentColor"/></svg></span></a></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="win win-wide" id="work" aria-labelledby="t-work" data-pos="12,8" data-w="1080">
+    <header class="win-bar"><button class="win-close" aria-label="Close">✕</button><h2 id="t-work">WORK.DAT</h2></header>
+    <div class="win-body">
+      <h3>FILM &amp; TV</h3>
+      <div class="posters">
+        <figure class="poster"><div class="poster-img"><img src="assets/work/poster-oitnb.jpg" alt="Orange Is the New Black" loading="lazy"></div><figcaption>Orange Is the New Black<span>Netflix</span></figcaption></figure>
+        <figure class="poster"><div class="poster-img"><img src="assets/work/poster-chick-fight.jpg" alt="Chick Fight" loading="lazy"></div><figcaption>Chick Fight<span>Score &amp; original songs</span></figcaption></figure>
+        <figure class="poster"><div class="poster-img"><img src="assets/work/poster-suits.jpg" alt="Suits" loading="lazy"></div><figcaption>Suits<span>TV</span></figcaption></figure>
+        <figure class="poster"><div class="poster-img"><img src="assets/work/poster-ray-donovan.png" alt="Ray Donovan" loading="lazy"></div><figcaption>Ray Donovan<span>TV</span></figcaption></figure>
+        <figure class="poster"><div class="poster-img"><img src="assets/work/poster-london-fields.png" alt="London Fields" loading="lazy"></div><figcaption>London Fields<span>Original score</span></figcaption></figure>
+        <figure class="poster"><div class="poster-img"><img src="assets/work/poster-greys.jpg" alt="Grey’s Anatomy" loading="lazy"></div><figcaption>Grey’s Anatomy<span>TV</span></figcaption></figure>
+        <figure class="poster"><div class="poster-img"><img src="assets/work/poster-13rw.jpg" alt="13 Reasons Why" loading="lazy"></div><figcaption>13 Reasons Why<span>Netflix</span></figcaption></figure>
+        <figure class="poster"><div class="poster-img"><img src="assets/work/poster-tbbt.jpg" alt="The Big Bang Theory" loading="lazy"></div><figcaption>The Big Bang Theory<span>TV</span></figcaption></figure>
+        <figure class="poster"><div class="poster-img"><img src="assets/work/poster-succession.jpg" alt="Succession" loading="lazy"></div><figcaption>Succession<span>HBO</span></figcaption></figure>
+        <figure class="poster"><div class="poster-img"><img src="assets/work/poster-the-bear.png" alt="The Bear" loading="lazy"></div><figcaption>The Bear<span>FX</span></figcaption></figure>
+      </div>
+      <h3>COLLABORATIONS</h3>
+      <div class="collabs">
+        <a class="collab" href="https://blocparty.com/" target="_blank" rel="noopener" title="Bloc Party ↗"><img src="assets/work/logo-bloc-party.png" alt="Bloc Party"></a>
+        <span class="collab"><img src="assets/work/logo-netflix.svg" alt="Netflix"></span>
+        <a class="collab" href="https://maximopark.com/" target="_blank" rel="noopener" title="Maxïmo Park ↗"><span>Maxïmo Park</span></a>
+        <span class="collab"><img src="assets/work/logo-bbc.svg" alt="BBC"></span>
+        <a class="collab" href="https://www.batforlashes.com/" target="_blank" rel="noopener" title="Bat For Lashes ↗"><span>Bat For Lashes</span></a>
+        <span class="collab"><img src="assets/work/logo-umg.svg" alt="Universal Music Group"></span>
+        <a class="collab" href="https://www.goodcharlotte.com/" target="_blank" rel="noopener" title="Good Charlotte ↗"><span>Good Charlotte</span></a>
+        <a class="collab" href="https://en.wikipedia.org/wiki/Daedelus_(musician)" target="_blank" rel="noopener" title="Daedelus ↗"><span>Daedelus</span></a>
+        <span class="collab collab-bafta"><img src="assets/work/logo-bafta-mask.svg" alt=""><b>BAFTA</b></span>
+        <a class="collab" href="https://www.meshell.com/" target="_blank" rel="noopener" title="Meshell Ndegeocello ↗"><span>Meshell Ndegeocello</span></a>
+        <span class="collab"><img src="assets/work/logo-hbo.svg" alt="HBO"></span>
+        <a class="collab" href="https://www.boningen.info/" target="_blank" rel="noopener" title="Bo Ningen ↗"><span>Bo Ningen</span></a>
+        <a class="collab" href="https://www.laphil.com/" target="_blank" rel="noopener" title="Los Angeles Philharmonic ↗"><img src="assets/work/logo-la-phil.svg" alt="Los Angeles Philharmonic"></a>
+        <a class="collab" href="https://www.pulledapartbyhorses.com/" target="_blank" rel="noopener" title="Pulled Apart By Horses ↗"><span>Pulled Apart By Horses</span></a>
+        <a class="collab" href="https://bonesuk.bandcamp.com/" target="_blank" rel="noopener" title="Bones UK ↗"><span>Bones UK</span></a>
+        <span class="collab"><img src="assets/work/logo-sony-music.svg" alt="Sony Music"></span>
+        <a class="collab" href="https://kairos4tet.bandcamp.com/" target="_blank" rel="noopener" title="Kairos 4tet ↗"><span>Kairos 4tet</span></a>
+        <span class="collab"><img src="assets/work/logo-paramount.svg" alt="Paramount"></span>
+        <a class="collab" href="https://lowerdens.bandcamp.com/" target="_blank" rel="noopener" title="Lower Dens ↗"><span>Lower Dens</span></a>
+        <span class="collab"><img src="assets/work/logo-mobo.png" alt="MOBO Awards"></span>
+        <a class="collab" href="https://menacebeach.bandcamp.com/" target="_blank" rel="noopener" title="Menace Beach ↗"><span>Menace Beach</span></a>
+        <span class="collab"><img src="assets/work/logo-wmg.svg" alt="Warner Music Group"></span>
+        <a class="collab" href="https://www.robotsdontsleep.com/" target="_blank" rel="noopener" title="Robot Koch ↗"><span>Robot Koch</span></a>
+        <a class="collab" href="https://kingdomchoir.com/" target="_blank" rel="noopener" title="The Kingdom Choir ↗"><span>The Kingdom Choir</span></a>
+        <a class="collab" href="https://halle.co.uk/" target="_blank" rel="noopener" title="The Hallé ↗"><span>The Hallé</span></a>
+        <a class="collab" href="https://www.newmastersounds.com/" target="_blank" rel="noopener" title="The New Mastersounds ↗"><span>The New Mastersounds</span></a>
+        <span class="collab"><img src="assets/work/logo-prime-video.svg" alt="Prime Video"></span>
+        <a class="collab" href="https://www.alexmaasmusic.com/" target="_blank" rel="noopener" title="Alex Maas ↗"><span>Alex Maas</span></a>
+        <span class="collab"><span>Warner Bros.</span></span>
+        <a class="collab" href="https://templestheband.com/" target="_blank" rel="noopener" title="James Bagshaw (Temples) ↗"><span>James Bagshaw (Temples)</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="win" id="contact" aria-labelledby="t-contact" data-pos="48,18" data-w="720">
+    <header class="win-bar"><button class="win-close" aria-label="Close">✕</button><h2 id="t-contact">CONTACT.VCF</h2></header>
+    <div class="win-body">
+<div class="contacts">
+      <article class="contact">
+        <h3 class="c-role">Management / Studio</h3>
+        <p class="c-name">Zoe Wilson</p>
+        <dl>
+          <dt>Email</dt><dd><a href="mailto:zoe@bensontaylor.com">zoe@bensontaylor.com</a></dd>
+          <dt>Phone</dt><dd><a href="tel:+13105596674">+1 310 559 6674</a></dd>
+          <dt>Address</dt><dd>1601 Vine Street, Hollywood<br>Los Angeles, CA 90028</dd>
+        </dl>
+      </article>
+      <article class="contact">
+        <h3 class="c-role">Public relations</h3>
+        <p class="c-name">Charley Walters</p>
+        <dl>
+          <dt>Email</dt><dd><a href="mailto:charley@cw3pr.com">charley@cw3pr.com</a></dd>
+          <dt>Phone</dt><dd><a href="tel:+13234761050">+1 323 476 1050</a></dd>
+          <dt>Address</dt><dd>2422 Claremont Avenue<br>Los Angeles, CA 90027</dd>
+        </dl>
+      </article>
+      <article class="contact">
+        <h3 class="c-role">Legal</h3>
+        <p class="c-name">Praveen Bhatia</p>
+        <dl>
+          <dt>Email</dt><dd><a href="mailto:praveen@tanward.co.uk">praveen@tanward.co.uk</a></dd>
+          <dt>Phone</dt><dd><a href="tel:+442039851240">+44 203 985 1240</a></dd>
+          <dt>Address</dt><dd>66-67 Newman Street<br>London, W1T 3EQ</dd>
+        </dl>
+      </article>
+      <article class="contact">
+        <h3 class="c-role">A Remarkable Idea (Universal Music)</h3>
+        <p class="c-name">Abigail Tyne</p>
+        <dl>
+          <dt>Email</dt><dd><a href="mailto:abigail@bensontaylor.com">abigail@bensontaylor.com</a></dd>
+          <dt>Phone</dt><dd><a href="tel:+442085596674">+44 208 559 6674</a></dd>
+          <dt>Address</dt><dd>24 Pepper Street<br>London, SE1 0EB</dd>
+        </dl>
+      </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="win" id="radio" aria-labelledby="t-radio" data-pos="56,24" data-w="600">
+    <header class="win-bar"><button class="win-close" aria-label="Close">✕</button><h2 id="t-radio">RADIO.FM</h2></header>
+    <div class="win-body">
+      <div class="radio-grid">
+        <a class="radio-card" href="https://www.nts.live/shows/guests/episodes/benson-taylor-3rd-march-2019" target="_blank" rel="noopener">
+          <img src="assets/img/nts-radio.png" alt="NTS Radio" width="150" height="150" loading="lazy"><span>NTS RADIO SHOW ↗</span>
+        </a>
+        <a class="radio-card" href="https://www.dublab.com/djs/benson-taylor" target="_blank" rel="noopener">
+          <img src="assets/img/dublab.jpg" alt="Dublab" width="150" height="150" loading="lazy"><span>DUBLAB RADIO SHOW ↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+<!-- Mini player: shows when the Music window is closed but a track is still playing. -->
+<section class="mini" id="mini" aria-label="Music player" hidden>
+  <header class="mini-head">
+    <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+    <button class="mini-open" id="mini-open" title="Open MUSIC.EXE">MUSIC.EXE</button>
+    <button class="win-close" id="mini-close" aria-label="Stop and close">✕</button>
+  </header>
+  <div class="mini-body">
+    <div class="mini-art"><img id="mini-art" src="assets/work/poster-london-fields.png" alt=""></div>
+    <div class="mini-info">
+      <p class="mini-title" id="mini-title">LETTERS ON THE WALL</p>
+      <div class="pl-bar mini-progress" id="mini-bar"><div class="pl-fill" id="mini-fill"></div></div>
+      <div class="mini-btns">
+        <button id="mini-prev" aria-label="Previous track"><svg viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M1 1h1v6H1zM6 1h1v6H6zM5 2h1v4H5zM4 3h1v2H4zM3 3.5h1v1H3z" fill="currentColor"/></svg></button>
+        <button id="mini-play" class="pl-play" aria-label="Pause"><svg class="i-play" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M2 1h1v6H2zM3 2h1v4H3zM4 3h1v2H4zM5 3.5h1v1H5z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M2 1h1.5v6H2zM4.5 1H6v6H4.5z" fill="currentColor"/></svg></button>
+        <button id="mini-next" aria-label="Next track"><svg viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M1 1h1v6H1zM2 2h1v4H2zM3 3h1v2H3zM4 3.5h1v1H4zM6 1h1v6H6z" fill="currentColor"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SoundCloud does the streaming; our controls drive it. -->
+<iframe id="sc-player" class="sc-engine" title="SoundCloud player" scrolling="no" allow="autoplay; encrypted-media" tabindex="-1" aria-hidden="true"
+          src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/651380435&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;visual=false"></iframe>
+<script src="https://w.soundcloud.com/player/api.js" defer></script>
+<script src="https://www.youtube.com/iframe_api" defer></script>
+<script src="assets/os.js?v=20261024210309" defer></script>
+</body>
+</html>
