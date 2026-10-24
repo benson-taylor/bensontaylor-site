@@ -52,7 +52,7 @@ img { display: block; max-width: 100%; height: auto; }
 
 /* ---------- Background ---------- */
 
-.bg { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; background: var(--pink); image-rendering: pixelated; }
+.bg { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; background: var(--pink); image-rendering: pixelated; touch-action: none; }
 
 /* ---------- Boot ---------- */
 
@@ -270,7 +270,7 @@ mark { background: var(--pink); color: #000; padding: 0 4px; }
 
 /* About */
 .portrait { position: relative; margin: 0; border: 2px solid #000; background: #000; }
-.portrait canvas { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: pan-y; }
+.portrait canvas { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: none; }
 .portrait img { filter: grayscale(1); }
 .bio { max-width: 84ch; margin-top: 24px; font-family: var(--vt); }
 .bio p { margin: 0 0 16px; font-size: 23px; line-height: 1.35; letter-spacing: 0.01em; }
@@ -466,10 +466,10 @@ a.collab:hover img { filter: brightness(0); }
   .desktop { position: static; }
   .icons {
     position: fixed;
-    left: 12px; right: 12px; top: auto; bottom: 104px;
+    left: 18px; right: 18px; top: auto; bottom: max(40px, 7vh);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 18px 0;
+    gap: max(34px, 6vh) 12px;
     z-index: 6;
   }
   .icons li:nth-child(n) { transform: none; }
@@ -477,7 +477,8 @@ a.collab:hover img { filter: brightness(0); }
   .icon img { width: 44px; height: 44px; }
   .icon span { font-size: 12px; }
 
-  .np {
+  .np { display: none !important; }
+  .np-unused {
     position: fixed;
     left: 10px; right: 10px; top: auto; bottom: 10px;
     width: auto;
@@ -498,7 +499,7 @@ a.collab:hover img { filter: brightness(0); }
   .np-controls a { white-space: nowrap; }
   .np-sound { padding: 3px 6px; }
 
-  .mini { left: 10px; right: 10px; bottom: 98px; width: auto; z-index: 8; }
+  .mini { left: 10px; right: 10px; bottom: 10px; width: auto; z-index: 8; }
 
   /* Windows: full-height sheets under the header. */
   .js .win {

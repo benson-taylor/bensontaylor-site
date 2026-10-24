@@ -109,6 +109,15 @@
   });
   wins.forEach(function (win) { win.addEventListener('pointerdown', function () { focus(win); }); });
 
+  // The name is "home": close everything, stay on the desktop (no reload, no intro).
+  document.querySelector('.mb-name').addEventListener('click', function (e) {
+    e.preventDefault();
+    wins.forEach(function (w) { w.classList.remove('open', 'active'); });
+    history.replaceState(null, '', location.pathname);
+    syncIcons();
+    if (typeof updateMini === 'function') updateMini();
+  });
+
   // Click anywhere outside a window to close what's open (menu, icons, players keep their own jobs).
   document.addEventListener('click', function (e) {
     if (root.classList.contains('booting')) return;
@@ -592,8 +601,9 @@
     for (var x = Math.max(0, Math.floor(cx - tol)); x <= Math.min(cols - 1, Math.ceil(cx + tol)); x++) {
       for (var y = Math.max(0, Math.floor(cy - tol)); y <= Math.min(rows - 1, Math.ceil(cy + tol)); y++) {
         var d = Math.hypot(cx - 0.5 - x, cy - 0.5 - y), k = Math.max(tol - d, 0) / (maxH * 0.5), i = x * rows + y;
-        spX[i] += Math.max(-1, Math.min(1, mouse.sx * k * MOUSE_SENS * 0.01));
-        spY[i] += Math.max(-1, Math.min(1, mouse.sy * k * MOUSE_SENS * 0.01));
+        var sens = MOUSE_SENS * (mobile.matches ? 2.2 : 1);
+        spX[i] += Math.max(-1, Math.min(1, mouse.sx * k * sens * 0.01));
+        spY[i] += Math.max(-1, Math.min(1, mouse.sy * k * sens * 0.01));
       }
     }
   }
@@ -634,6 +644,11 @@
     ctx.drawImage(outC, 0, 0, cols * cell, rows * cell);
   }
 
+  addEventListener('pointerdown', function (e) {
+    if (e.pointerType === 'mouse') return;
+    mouse.x = mouse.px = e.clientX; mouse.y = mouse.py = e.clientY; mouse.sx = mouse.sy = 0; mouse.in = true;
+  });
+  addEventListener('pointerup', function (e) { if (e.pointerType !== 'mouse') mouse.in = false; });
   addEventListener('pointermove', function (e) {
     if (mouse.x < 0) { mouse.px = e.clientX; mouse.py = e.clientY; }
     mouse.x = e.clientX; mouse.y = e.clientY; mouse.in = true;
@@ -663,6 +678,7 @@
   }
 
   function makePlayer() {
+    if (mobile.matches) return; // phones: no autoplaying video box
     if (yt || !window.YT || !YT.Player) return;
     yt = new YT.Player('np-player', {
       videoId: 'rpQ9LRvMG9g',
