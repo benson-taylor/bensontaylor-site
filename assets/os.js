@@ -79,6 +79,7 @@
     win.classList.add('open');
     focus(win);
     if (!wasOpen) {
+      win.querySelector('.win-body').scrollTop = 0; // reopened windows start at the top
       zoomRects(from, win);
       win.classList.remove('win-in'); void win.offsetWidth; win.classList.add('win-in');
       if (id === 'about') revealPortrait(win);
