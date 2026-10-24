@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=VT323&display=swap">
-<link rel="stylesheet" href="assets/os.css?v=20261024215442">
+<link rel="stylesheet" href="assets/os.css?v=20261024220000">
 <script>
   // Set before the first paint so the boot screen covers the site from the start (no flash on reload).
   document.documentElement.classList.add('js');
@@ -50,6 +50,7 @@
     <a href="#contact" data-open="contact">CONTACT</a>
     <a href="#radio" data-open="radio">RADIO</a>
   </nav>
+  <button class="mb-burger" id="mb-burger" aria-expanded="false" aria-controls="mmenu">MENU</button>
   <div class="mb-social">
     <a href="https://www.instagram.com/_bensontaylor/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
       <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="12" r="4.4" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="17.6" cy="6.4" r="1.4" fill="currentColor"/></svg>
@@ -62,6 +63,28 @@
     </a>
   </div>
 </header>
+
+<!-- Phone menu -->
+<nav class="mmenu" id="mmenu" aria-label="Menu" hidden>
+  <a href="#new-music" data-open="new-music">NEW MUSIC</a>
+  <a href="#about" data-open="about">ABOUT</a>
+  <a href="#music" data-open="music">MUSIC</a>
+  <a href="#work" data-open="work">WORK</a>
+  <a href="#contact" data-open="contact">CONTACT</a>
+  <a href="#radio" data-open="radio">RADIO</a>
+  <div class="mmenu-social">
+    <a href="https://www.instagram.com/_bensontaylor/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="12" r="4.4" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="17.6" cy="6.4" r="1.4" fill="currentColor"/></svg>
+    </a>
+    <a class="imdb" href="https://www.imdb.com/name/nm3892603/" target="_blank" rel="noopener" aria-label="IMDb" title="IMDb">
+      <svg viewBox="0 0 48 24" aria-hidden="true"><text x="24" y="18" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="16" letter-spacing="-0.5" fill="currentColor">IMDb</text></svg>
+    </a>
+    <a href="https://twitter.com/_bensontaylor" target="_blank" rel="noopener" aria-label="X" title="X">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+  </div>
+</nav>
+
 
 <main class="desktop" id="content">
 
@@ -308,6 +331,6 @@
           src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/651380435&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;visual=false"></iframe>
 <script src="https://w.soundcloud.com/player/api.js" defer></script>
 <script src="https://www.youtube.com/iframe_api" defer></script>
-<script src="assets/os.js?v=20261024215808" defer></script>
+<script src="assets/os.js?v=20261024220000" defer></script>
 </body>
 </html>

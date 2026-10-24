@@ -110,9 +110,17 @@
   });
   wins.forEach(function (win) { win.addEventListener('pointerdown', function () { focus(win); }); });
 
+  // Phone menu.
+  var burger = document.getElementById('mb-burger'), mmenu = document.getElementById('mmenu');
+  function setMenu(on) { mmenu.hidden = !on; burger.setAttribute('aria-expanded', String(on)); }
+  burger.addEventListener('click', function (e) { e.stopPropagation(); setMenu(mmenu.hidden); });
+  mmenu.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
+  document.addEventListener('click', function (e) { if (!mmenu.hidden && !e.target.closest('.mmenu, .mb-burger')) setMenu(false); });
+
   // The name is "home": close everything, stay on the desktop (no reload, no intro).
   document.querySelector('.mb-name').addEventListener('click', function (e) {
     e.preventDefault();
+    setMenu(false);
     wins.forEach(function (w) { w.classList.remove('open', 'active'); });
     history.replaceState(null, '', location.pathname);
     syncIcons();
@@ -122,7 +130,7 @@
   // Click anywhere outside a window to close what's open (menu, icons, players keep their own jobs).
   document.addEventListener('click', function (e) {
     if (root.classList.contains('booting')) return;
-    if (e.target.closest('.win, [data-open], .menubar, .np, .mini, .icons, a, button')) return;
+    if (e.target.closest('.win, [data-open], .menubar, .mmenu, .np, .mini, .icons, a, button')) return;
     var openWins = wins.filter(function (w) { return w.classList.contains('open'); });
     if (!openWins.length) return;
     openWins.forEach(function (w) { w.classList.remove('open', 'active'); });
