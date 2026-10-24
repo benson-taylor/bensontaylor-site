@@ -725,8 +725,9 @@
       var cw = probe.getBoundingClientRect().width / 100 || 10, lh = probe.getBoundingClientRect().height || 22;
       log.removeChild(probe);
       dumpMetrics = { cw: cw, lh: lh };
-      var ADDR = 10; // "0001A3F0  "
-      var perRow = Math.max(2, Math.floor(((bootEl.clientWidth - 64) / cw - ADDR + 1) / 9));
+      var ADDR = 10;
+      var padX = 2 * (parseFloat(getComputedStyle(bootEl).paddingLeft) || 32);
+      var perRow = Math.max(2, Math.floor(((bootEl.clientWidth - padX) / cw - ADDR + 1) / 9));
       var rowsN = Math.max(8, Math.floor((bootEl.clientHeight - 64) / lh) - 3);
 
       function chunks(bytes) { var out = []; for (var b = 0; b < bytes.length; b += perRow) out.push(bytes.slice(b, b + perRow)); return out; }
@@ -781,7 +782,7 @@
 
       var prompt = document.createElement('div');
       prompt.className = 'boot-prompt boot-prompt-fixed';
-      prompt.textContent = 'CLICK OR PRESS ANY KEY TO START_';
+      prompt.textContent = matchMedia('(hover: none)').matches ? 'TAP TO START_' : 'CLICK OR PRESS ANY KEY TO START_';
       bootEl.appendChild(prompt);
 
       (function tick() {
